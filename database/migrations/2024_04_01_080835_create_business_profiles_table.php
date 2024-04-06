@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('business_profiles', function (Blueprint $table) {
             $table->id();
-            // $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained();
             $table->string('company_name');
             $table->string('company_email');
             $table->string('website_url');

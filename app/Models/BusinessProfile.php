@@ -11,7 +11,7 @@ class BusinessProfile extends Model
     use HasFactory;
 
     protected $fillable = [
-        // 'user_id',
+        'user_id',
         'company_name',
         'company_email',
         'website_url',
@@ -19,8 +19,8 @@ class BusinessProfile extends Model
         'custom_link_code',
     ];
 
-    // public function user(): BelongsTo
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -13,12 +13,14 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @auth
-                    <x-nav-link wire:navigate href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                        <x-nav-link wire:navigate href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        @if (Auth::user()->is_admin)
                         <x-nav-link wire:navigate href="{{ route('admin.profiles') }}" :active="request()->routeIs('admin.profiles')">
                             {{ __('Profiles List') }}
                         </x-nav-link>
+                        @endif
                     @endauth
 
                 </div>
@@ -116,6 +118,14 @@
                                 <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
+                                @auth
+                                    @if (!Auth::user()->is_admin)
+                                        <x-dropdown-link wire:navigate href="{{ route('business_profile') }}">
+                                            {{ __('Business Profile') }}
+                                        </x-dropdown-link>
+                                    @endif
+                                @endauth
+
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link wire:navigate href="{{ route('api-tokens.index') }}">

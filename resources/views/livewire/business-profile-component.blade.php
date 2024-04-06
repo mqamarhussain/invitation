@@ -28,12 +28,13 @@
         </div>
 
         <div class="mt-3 text-end">
-            <p class="hidden mb-4 text-sm font-medium text-orange-800" wire:loading.class.remove='hidden' wire:target='submitForm'> Sending email, Please wait! </p>
-            <x-button wire:loading.disabled class="ms-4">
+            <p class="hidden mb-4 text-sm font-medium text-orange-800" wire:loading.class.remove="hidden"
+                wire:target="submitForm">Sending email, Please wait!</p>
+            <x-button wire:loading.disabled>
                 {{ __('Submit') }}
             </x-button>
-
         </div>
+
 
     </form>
 </div>

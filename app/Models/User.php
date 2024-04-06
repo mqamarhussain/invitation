@@ -64,8 +64,13 @@ class User extends Authenticatable
         ];
     }
 
-    // public function business_profile(): HasOne
-    // {
-    //     return $this->hasOne(BusinessProfile::class);
-    // }
+    public function business_profile(): HasOne
+    {
+        return $this->hasOne(BusinessProfile::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin ;
+    }
 }

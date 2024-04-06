@@ -28,7 +28,7 @@ class RatingComponent extends Component
         $profile = BusinessProfile::query()->where('custom_link_code', $this->code)->firstOrFail();
         if ($this->rating != 5) {
 
-            return redirect()->to($profile->website_url);
+            return redirect()->away($profile->website_url);
         }
 
         session()->flash('flash.banner', 'Thanks for your time...');

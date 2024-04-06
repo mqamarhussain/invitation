@@ -15,8 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(100)->create();
-        BusinessProfile::factory(100)->create();
-        // $this->call(BusinessProfileSeeder::class);
+        // BusinessProfile::factory(100)->create();
 
         User::factory()->create([
             'name' => 'Admin',
@@ -25,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
+        // $this->call(BusinessProfileSeeder::class);
 
     }
 }
